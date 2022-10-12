@@ -39,9 +39,10 @@ return finalTotalAmount;
 
 function removeProduct(event) {
   const target = event.currentTarget;
-  let itemToRemove = target;
-  const parent = target.parentNode;
-  parent.removeChild(itemToRemove);
+  const itemToRemove = target.parentNode.parentNode;
+  const itemToRemoveParent = itemToRemove.parentNode;
+  itemToRemoveParent.removeChild(itemToRemove);
+  calculateAll();
 }
 
 // ITERATION 5
@@ -55,7 +56,8 @@ window.addEventListener('load', () => {
   calculatePricesBtn.addEventListener('click', calculateAll);
 });
 
- document.querySelectorAll(".btn-remove").forEach((removeButton) => {
-addEventListener("click", removeProduct)
+ const removeBtns = document.querySelectorAll(".btn-remove").forEach((removeButton) => {
+removeButton.addEventListener("click", removeProduct)
   });
+
 
