@@ -21,12 +21,19 @@ function calculateAll() {
   // end of test */
 
   // ITERATION 2
+  let counter = 0;
 document.querySelectorAll(".product").forEach((nodeElement) => {
-  updateSubtotal(nodeElement);
+  
+let newSubTot = updateSubtotal(nodeElement);
+counter += newSubTot;
 });
 
   // ITERATION 3
-  //... your code goes here
+const totalAmount = document.querySelector("#total-value span");
+totalAmount.innerText = counter;
+const finalTotalAmount = Number(totalAmount.innerText);
+return finalTotalAmount;
+
 }
 
 // ITERATION 4
