@@ -33,15 +33,15 @@ const totalAmount = document.querySelector("#total-value span");
 totalAmount.innerText = counter;
 const finalTotalAmount = Number(totalAmount.innerText);
 return finalTotalAmount;
-
 }
 
 // ITERATION 4
 
 function removeProduct(event) {
   const target = event.currentTarget;
-  console.log('The target in remove is:', target);
-  //... your code goes here
+  let itemToRemove = target;
+  const parent = target.parentNode;
+  parent.removeChild(itemToRemove);
 }
 
 // ITERATION 5
@@ -53,7 +53,9 @@ function createProduct() {
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
-
-  //... your code goes here
 });
+
+ document.querySelectorAll(".btn-remove").forEach((removeButton) => {
+addEventListener("click", removeProduct)
+  });
 
